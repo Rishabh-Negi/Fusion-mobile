@@ -122,7 +122,7 @@ class _LodgeComplaintState extends State<LodgeComplaint> {
                   underline: SizedBox(),
                   style: TextStyle(color: Colors.black, fontSize: 16),
                   onChanged: (newValue) {
-                    print(service.userInDB.token!);
+                    print(service.userInDB?.token ?? "");
                     print(complainer);
                     setState(() {
                       complaint_type = newValue.toString();

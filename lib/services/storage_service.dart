@@ -13,9 +13,10 @@ class StorageService with ChangeNotifier {
   static const String UserKey = "user";
   static const String ProfileKey = "ProfileKey";
 
-  User get userInDB {
+  User? get userInDB {
     var userJson = _getFromDisk(UserKey);
-    return User.fromJson(jsonDecode(userJson));
+
+    return userJson == null ? null : User.fromJson(jsonDecode(userJson));
   }
 
   ProfileData get profileData {
@@ -50,7 +51,7 @@ class StorageService with ChangeNotifier {
   }
 
   dynamic _getFromDisk(String key) {
-    var value = _sharedPreferences!.get(key);
+    var value = _sharedPreferences?.get(key);
     // print('(TRACE) LocalStorageService:_getFromDisk. key: $key value: $value');
     return value;
   }

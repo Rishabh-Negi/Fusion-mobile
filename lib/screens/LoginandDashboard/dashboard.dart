@@ -56,7 +56,7 @@ class _DashboardState extends State<Dashboard> {
       studentType = data2.profile!['department']!['name'] +
           '  ' +
           data2.profile!['user_type'];
-    }catch(e){
+    } catch (e) {
       print(e);
     }
   }
